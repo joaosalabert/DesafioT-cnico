@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 3</title>
+</head>
+<script>
+    let op;
+    while (op!='N') {   //Enquanto a opção de continuar for diferente de 'N', o loop continua.
+        let n = Number(prompt("Número a calcular o fatorial:"));    //Número a se calcular o fatorial, transformado em tipo Number.
+        while (n<0) {
+            n = Number(prompt("Número inválido, digite outro por favor:")); //Número a se calcular o fatorial de novo caso o primeiro seja inválido, transformado em tipo Number.
+        }
+        let fat=1;
+        for (let i=1; i<n+1; i++){
+            fat*=i; //Percorre de 1 até o número escolhido, multiplicando por cada um deles.
+        }
+        console.log(`Fatorial de ${n} é ${fat}.`);
+        op = prompt("Deseja continuar? [S/N]").toUpperCase();   //Recebe a opção e transforma ela em maiúscula.
+    }
+</script>
+</html>

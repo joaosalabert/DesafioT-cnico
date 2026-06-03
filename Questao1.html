@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 1</title>
+</head>
+<script>
+    let real = prompt("Valor a ser convertido: R$");
+    Number(real);
+    let euro = (real/6.1).toFixed(2);   //Conversão para euro e formatação para 2 casas decimais.
+    let dolar = (real/5.7).toFixed(2);  //Conversão para dolar e formatação para 2 casas decimais.
+    console.log(`O valor recebido foi ${real}.`);
+    console.log(`Em dólares, o valor é U$${dolar}.`);
+    console.log(`Em euros o valor é €${euro}.`);
+</script>
+</html>

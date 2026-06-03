@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 4</title>
+</head>
+<script>
+    let fra = prompt("Frase:").toLowerCase().split(''); //Põe todas as letras da frase em minúsculo e separa elas em uma lista.
+    let i=0;    //Índice inicial da lista.
+    let j=(fra.length)-1;   //Índice final da lista.
+    let pal = true;
+    while (i<=j){   //Loop que percorre as letras correspondentes do final e começo da lista até que esses índices se encontrem ou se cruzem.
+        if (fra[i]!=fra[j]) {   //Se essas letras forem diferentes...
+            pal = false;    //pal fica falso,
+            break;          //e o loop para.
+        }
+        i++;    //Incrementa 1 para andar a posição comparada para frente.
+        j--;    //Decrementa 1 para andar a posição comparada para trás.
+    }
+    if (pal){   //Se pal se mantém true, é um palíndromo.
+        console.log("É um palíndromo.");
+    }else{  //Se não, não é.
+        console.log("Não é um palíndromo.");
+    }
+</script>
+</html>
