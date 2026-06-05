@@ -12,8 +12,13 @@
     }
 
     function atender(){
-        console.log(`Cliente ${clientes[0]} sendo atendido.`);  //Imprime o primeiro nome da fila.
-        clientes.shift();   //Exclui da lista o primeiro nome.
+        //Confirmando que há clientes na fila:
+        if (clientes.length>0) {
+            console.log(`Cliente ${clientes[0]} sendo atendido.`);  //Imprime o primeiro nome da fila.
+            clientes.shift();   //Exclui da lista o primeiro nome.
+        }else{
+            console.log("Não há cliente para ser atendido.");
+        }
     }
 
     let clientes = [];  //Inicializa o array com os nomes.
@@ -21,13 +26,6 @@
     while (op!=3){  //Loop até a opção ser 3 para acabar o programa.
         console.log("-------MENU-------");
         console.log("1-Novo Cliente\n2-Atender Cliente\n3-Sair");
-        op = prompt("Opção: "); //Recebe a opção.
-        if (op==1) {
-            let novo = adicionar(); //Caso a opção seja 1, ele recebe o nome de retorno da função de adicionar.
-            clientes.push(novo);    //Atribui à última posição da lista o novo nome.
-        }else if(op==2){
-            atender();  //Caso a opção seja 2, chama a função de atender um cliente.
-        }
         if (clientes.length==0) {
             console.log("FILA VAZIA");  //Caso não tenha nenhum nome na fila.
         }else{  //Se tiver, percorre toda a fila e imprime os nomes em ordem.
@@ -35,6 +33,13 @@
             for (let i=0; i<clientes.length; i++) {
                 console.log(`${i+1}º ${clientes[i]}`);
             }
+        }
+        op = prompt("Opção: "); //Recebe a opção.
+        if (op==1) {
+            let novo = adicionar(); //Caso a opção seja 1, ele recebe o nome de retorno da função de adicionar.
+            clientes.push(novo);    //Atribui à última posição da lista o novo nome.
+        }else if(op==2){
+            atender();  //Caso a opção seja 2, chama a função de atender um cliente.
         }
     }
 </script>

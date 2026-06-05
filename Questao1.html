@@ -6,8 +6,7 @@
     <title>Questão 1</title>
 </head>
 <script>
-    let real = prompt("Valor a ser convertido: R$");
-    Number(real);
+    let real = Number(prompt("Valor a ser convertido: R$"));
     let euro = (real/6.1).toFixed(2);   //Conversão para euro e formatação para 2 casas decimais.
     let dolar = (real/5.7).toFixed(2);  //Conversão para dolar e formatação para 2 casas decimais.
     console.log(`O valor recebido foi ${real}.`);

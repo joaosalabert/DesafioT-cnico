@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Questão 2</title>
 </head>
-    <script>
-        let a = Number(prompt("Valor de a:"));
-        let b = Number(prompt("Valor de b:"));
-        let c = Number(prompt("Valor de c:"));
-        let delta = (b**2)-(4*a*c); //Calculo do delta.
-        if (delta<0) {
-            console.log("Não existem raízes para essa operação.");  //Caso não existam raízes para a equação.
-        }else if(delta==0){
-            let x = (((-b)+(delta**(1/2)))/(2*a)).toFixed(2);   //Caso delta seja 0, só existe uma raiz. Resultado formatado com 2 casas decimais.
-            console.log(`O valor único de x é: ${x}.`);
-        }else if(delta>0){
-            let x1 = (((-b)+(delta**(1/2)))/(2*a)).toFixed(2);  //Valor da primeira raiz. Resultado formatado com 2 casas decimais.
-            let x2 = (((-b)-(delta**(1/2)))/(2*a)).toFixed(2);  //Valor da segunda raiz. Resultado formatado com 2 casas decimais.
-            console.log(`x1 = ${x1} e x2 = ${x2}`);
-        }
-    </script>
+<script>
+    let a = Number(prompt("Valor de a:"));
+    let b = Number(prompt("Valor de b:"));
+    let c = Number(prompt("Valor de c:"));
+    let delta = (b**2)-(4*a*c); //Calculo do delta.
+    if (delta<0) {
+        console.log("Não existem raízes reais para essa operação.");  //Caso não existam raízes para a equação.
+    }else if(delta==0){
+        let x = (((-b)+(delta**(1/2)))/(2*a)).toFixed(2);   //Caso delta seja 0, só existe uma raiz. Resultado formatado com 2 casas decimais.
+        console.log(`O valor único de x é: ${x}.`);
+    }else if(delta>0){
+        let x1 = (((-b)+(delta**(1/2)))/(2*a)).toFixed(2);  //Valor da primeira raiz. Resultado formatado com 2 casas decimais.
+        let x2 = (((-b)-(delta**(1/2)))/(2*a)).toFixed(2);  //Valor da segunda raiz. Resultado formatado com 2 casas decimais.
+        console.log(`x1 = ${x1} e x2 = ${x2}`);
+    }
+</script>
 </html>

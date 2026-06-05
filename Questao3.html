@@ -9,7 +9,7 @@
     let op;
     while (op!='N') {   //Enquanto a opção de continuar for diferente de 'N', o loop continua.
         let n = Number(prompt("Número a calcular o fatorial:"));    //Número a se calcular o fatorial, transformado em tipo Number.
-        while (n<0) {
+        while (n<0 || !Number.isInteger(n) || isNaN(n)) { //Lê n até que não seja um número negativo, decimal ou não seja um número.
             n = Number(prompt("Número inválido, digite outro por favor:")); //Número a se calcular o fatorial de novo caso o primeiro seja inválido, transformado em tipo Number.
         }
         let fat=1;
