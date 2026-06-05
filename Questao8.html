@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 8</title>
+</head>
+<script>
+    function analisarConsumo(consumo){
+        let lim = prompt("Limite máximo de consumo em kWh para a categoria 'Econômico':"); //Recebe o limite máximo de consumo.
+        let classes = [];   //Inicializa o array que receberá a classe do consumo.
+        for (let i=0; i<consumo.length; i++) {  //Percorre o array dos consumos.
+            if (consumo[i]<lim){
+                classes[i] = "Econômico";   //Caso o consumo da posição atual for menor que o limte, o array de classes recebe "Econômico".
+            }else if(consumo[i]==lim){
+                classes[i] = "No Limite";   //Caso o consumo da posição atual for igual ao limte, o array de classes recebe "No Limite".
+            }else{
+                classes[i] = "Acha que é sócio da Enel";    //Caso o consumo da posição atual for maior que o limte, o array de classes recebe "Acha que é sócio da Enel".
+            }
+        }
+        return classes; //Retorna o array com as classes.
+    }
+    let tam = prompt("Quantidade de aparelhos: ");  //Recebe a quantidade ed aparelhos para análise.
+    let consumos = [];  //Inicializa o array que receberá os consumos
+    for (let i=0; i<tam; i++) {
+        let consumo = prompt(`Consumo do aparelho ${i+1} em kWh:`);
+        consumos.push(consumo); //Lê e adiciona o consumo no array.
+    }
+    let classes = analisarConsumo(consumos);    //Envia o array para a unção processar e atribui à uma nova variàvel.
+    for (let i=0; i<classes.length; i++){
+        if (classes[i]=="No Limite" || classes[i]=="Econômico") {   //Caso a classe atual esteja dentro do limite...
+            console.log(`Aparelho ${i+1}: Econômico.`); //Imprime conforme o formato pedido.
+        }else{  //Caso a classe atual esteja fora do limite...
+            console.log(`Aparelho ${i+1}: Alto Consumo.`);  //Imprime conforme o formato pedido.
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 9</title>
+</head>
+<script>
+    function compactarTexto(string){
+        string = string.trim(); //Tira os espaços em branco do início e fim da string.
+        string = string.split(' ').join('');    //Separa por espaços em branco e junto sem espaços.
+        string = string.split('');  //Separa todas as letras em uma lista.
+        let nova_str = [];  //Inicializa o array que receberá os caracteres da string compactada.
+        let cont=1;
+        for (let i=0; i<string.length; i++) {
+            if (string[i]==string[i+1]){    //Caso o caractere atual seja igual ao próximo...
+                cont++; //Adiciona 1 ao contador.
+            }else{  //Se não...
+                nova_str.push(string[i]);   //...adiciona a letra à lista...
+                nova_str.push(cont);    //...e a quantidade daquela letra.
+                cont = 1;   //Reinicializa o contador para 1 para contar a nova letra.
+            }
+        }
+        nova_str = nova_str.join('');   //Junta a lista da nova string em uma única string.
+        return nova_str;
+    }
+    let string = prompt("Frase para compactar: ");
+    let nova_str = compactarTexto(string);
+    console.log(`Texto compactado: "${nova_str}".`);
+</script>
+</html>

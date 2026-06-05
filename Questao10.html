@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 10</title>
+</head>
+<script>
+    function adicionarJogador(nome, idade, posicao, pontuacao){
+        let jogador = {nome: nome, idade: idade, posicao: posicao, pontuacao: pontuacao};   //Põe os dados no objeto.
+        time.push(jogador); //Adiciona o objeto ao array do time.
+    }
+
+    function buscarPorPosicao(posicao){
+        let jogadores = []; //Inicializa o array onde o nome dos jogadores da posição vai.
+        for (let i=0; i<time.length; i++) { //Percorre o array time.
+            if (time[i].posicao==posicao) { //Caso a posição informada pelo usuário for a mesma do jogador da psição...
+                jogadores.push(time[i].nome);   //...o nome do jogador é adicionado ao array. 
+            }
+        }
+        return jogadores;
+    }
+
+    function listarTime(){
+        if (time.length==0) {   //Caso não tenha jogadores no array do time:
+            console.log("-------------------------------");
+            console.log("Não há jogadores cadastrados.");
+            console.log("-------------------------------");
+        }else{  //Se tiver...
+            console.log("-------------------------------");
+            console.log("Jogadores cadastrados:");
+            for (let i=0; i<time.length; i++) { //... percorre a lista...
+                console.log(`Jogador ${i+1}: ${time[i].nome}.`);    //... e imprime o nome desses jogadores.
+            }
+            console.log("-------------------------------");
+        }
+    }
+
+    function calcularPontuacaoMedia(){
+        let media=0;    //Inicializa a variável que guardará a média.
+        for (let i=0; i<time.length; i++) { //Percorre o array time.
+            media += time[i].pontuacao; //Adiciona a pontuação de cada jogador à média.
+        }
+        media /= (time.length); //Divide a soma pelo tamanho de jogadores.
+        console.log("-----------------------------------------------------------");
+        console.log(`A pontuação média do time é de ${media.toFixed(2)} pontos por jogador.`);  //Imprime com formatação de duas casas decimais.
+        console.log("-----------------------------------------------------------");
+    }
+
+    let time = [];  //Inicializa a variável que guardará os objetos com os dados dos jogadores.
+    console.log("-------------------------------");
+    console.log("1-Adicionar jogador\n2-Buscar por posição\n3-Listar time\n4-Calcular pontuação média\n5-Sair");    //Menu de opções.
+    console.log("-------------------------------");
+    let op;
+    while (op!=5) {
+        op = prompt("Opção:");
+        if (op==1){
+            //Recebe os dados do jogador:
+            let nome = String(prompt("Nome:"));
+            let idade = Number(prompt("Idade:"));
+            let posicao = String(prompt("Posição:")).toUpperCase();
+            let pontuacao = Number(prompt("Pontuação:"));
+            adicionarJogador(nome, idade, posicao, pontuacao);  //Envia as informações para a função.
+            console.log("Jogador Adicionado!");
+        }else if(op==2){
+            let pos = prompt("Posição a procurar:").toUpperCase();  //Recebe a posição a ser procurada pela função.
+            let jogadores = buscarPorPosicao(pos);  //Atribui o array retornado pela função à uma variável.
+            if (jogadores.length==0){   //Caso não tenha jogadores no array.
+                console.log("-------------------------------");
+                console.log("Não há jogadores nesta posição.")
+                console.log("-------------------------------");
+            }else{
+                console.log("-------------------------------");
+                console.log(`Jogadores na posição ${pos}:`)
+                for (let i=0; i<jogadores.length; i++) {    //Percorre o array retornado e imprime cada jogador da posição.
+                    console.log(`Jogador ${i+1}: ${jogadores[i]}.`);
+                }
+                console.log("-------------------------------");
+            }
+        }else if(op==3){
+            listarTime();
+        }else if(op==4){
+            calcularPontuacaoMedia();
+        }
+    }
+</script>
+</html>
